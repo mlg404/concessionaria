@@ -4,22 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Concessiionária</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>    
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    
+    <div class="container">
+        <div data-id="1" class="box carros">
+            <span class="iconColor"><i class="fas fa-car-side"></i></span> 
+            <div class="box-text">Carros</div>
+        </div>
+        <div data-id="2" class="box motos">
+            <span class="iconColor"><i class="fas fa-motorcycle"></i></span> 
+            <div class="box-text">motos</div>
+        </div>
+    </div>
 </body>
+<script>
+    $(document).ready(function() {
+        $("body").height($(window).height());
+    })
+</script>
 <script>
     $.ajax({
         url: './veiculos.json',
         dataType: 'JSON',
         success: function(data){
             data.motos.forEach(a => {
-                console.log(a.name)
+                console.log(a)
             });
         }
     })
     
 </script>
+<script>
+    $(".box").one('click',function(){
+        console.log($(this).attr('data-id'))
+        switch ($(this).attr('data-id')) {
+            case "1":
+                var item = "carros";
+                break;
+            case "2":
+                var item = "motos";
+                break;
+        
+            default:
+                break;
+        }
+        $.ajax({
+        url: './veiculos.json',
+        dataType: 'JSON',
+        success: function(data2){
+           // $(".container").children().animate({opacity: "0"},250)
+            $(".container").children().remove();
+            var card;
+            data2[item].forEach(item => {
+                //console.log(item.image);
+                var img = new Image();
+                $(img)
+                    .attr('src','https://i.imgur.com/BflrI8X.jpg')
+                    .attr('onload','console.log("image added");').appendTo('body');
+                    console.log(img);
+                    /*$(img).appendTo("body");
+                card = "<div class='card'>";
+                card += "<div class='card-image'>"+img+"</div>"
+                $(".container").append(card)*/
+            });
+        }
+    })
+    })
+    //$(".container").children().animate({opacity: "0"},250)
+</script>
+<script src="https://use.fontawesome.com/releases/v5.9.0/js/all.js" data-auto-replace-svg="nest"></script>
 </html>
