@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <div id="img"><img class="vimg" src="https://3wga6448744j404mpt11pbx4-wpengine.netdna-ssl.com/wp-content/uploads/2015/05/InternetSlowdown_Day.gif" alt="" ></div>
+    <div id="img"><img class="vimg" src="" alt="" ></div>
     <div class="container">
         <div data-id="1" class="box carros">
             <span class="iconColor"><i class="fas fa-car-side"></i></span> 
@@ -45,7 +45,7 @@
         cache: 'false',
         dataType: 'JSON',
         beforeSend: function(){
-            $("#img").toggle("display");
+            $(".container").children().fadeOut();
         },
         success: function(data2){
             $(".container").children().remove();
