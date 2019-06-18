@@ -69,5 +69,6 @@ body{
 	text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff; /* borda texto */
 }
 .card-image{
-    width: 300px;
+    width: 200px;
+    height: 150px;
 }
