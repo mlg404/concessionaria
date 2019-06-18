@@ -1,4 +1,10 @@
 <?php
+/*
+Agradecimento ao Mario | 179 (Disneylandia) por que 
+eu meio que "roubei" essas motos do arquivo que ele
+disponibilizou lá no discord do servidor. Infelizmente
+não consegui roubar os carros, mas depois eu peço com carinho
+*/
 $string = "
 Akuma--420.000--2--https://i.imgur.com/BflrI8X.jpg#
 Avarus--350.000--1--https://i.imgur.com/kfSvOg2.jpg#
