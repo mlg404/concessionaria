@@ -60,15 +60,15 @@
             var card;
             data2[item].forEach(item => {
                 //console.log(item.image);
-                var img = new Image();
+                /*var img = new Image();
                 $(img)
                     .attr('src','https://i.imgur.com/BflrI8X.jpg')
                     .attr('onload','console.log("image added");').appendTo('body');
-                    console.log(img);
-                    /*$(img).appendTo("body");
+                    console.log(img);*/
+                    //$(img).appendTo("body");
                 card = "<div class='card'>";
-                card += "<div class='card-image'>"+img+"</div>"
-                $(".container").append(card)*/
+                card += "<div class='card-image'>"+item.image+"</div>"
+                $(".container").append(card)
             });
         }
     })
