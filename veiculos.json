@@ -1,4 +1,8 @@
 {
+    "config": {
+        "itens" : 7,
+        "lines" : 2
+    },
     "carros":   [
             {
                 "name"  : "Adder",
