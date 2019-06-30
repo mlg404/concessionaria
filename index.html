@@ -45,6 +45,7 @@
         dataType: 'JSON',
         success: function(data){
             data["config"].itens = parseInt(($(".container").width()-40)/200);
+            data["config"].pages = Math.ceil(data[item].length/(data["config"].lines*data["config"].itens));
             console.log(data);
             $(".container").children().remove();
             var boxCard= '<div class="box-vehicle"></div>'
@@ -52,14 +53,8 @@
 
             var card;
             var i;
-            for (i=0; i<data[item].length; i++){
-                console.log(i);
-                if (i==10){
-                    break;
-                }
-            }
-            data[item].forEach((itens,index) => {
-                //console.log(index);
+            for (i=0; i<data["config"].lines*data["config"].itens; i++){
+                let itens = data[item][i];
                 card = "<div class='card'>";
                 card += "   <div class='card-image'><img style='width:200px;height:150px;' src='"+itens.image+"'></div>";
                 card += "   <div class='card-info'>";
@@ -78,6 +73,29 @@
                 card += "   </div>";
                 card += "</div>";
                 $(".box-vehicle").append(card);
+            }
+            $(".box-vehicle").append('<div class="pagination"></div>');
+            data[item].forEach((itens,index) => {
+                console.log(data[item][0]);
+                //console.log(index);
+                // card = "<div class='card'>";
+                // card += "   <div class='card-image'><img style='width:200px;height:150px;' src='"+itens.image+"'></div>";
+                // card += "   <div class='card-info'>";
+                // card += "       <div class='vehicle-data vehicle-name'>";
+                // card += "           <div class='icon car-info'><i class='fas fa-info'></i></div>";
+                // card += "           <div class='card-text'>"+itens.name+"</div>";
+                // card += "       </div>";
+                // card += "       <div class='vehicle-data vehicle-mount'>";
+                // card += "           <div class='icon chair'><i class='fas fa-chair'></i></div>";
+                // card += "           <div class='card-text'>"+itens.mount+"</div>";
+                // card += "       </div>";
+                // card += "       <div class='vehicle-data vehicle-value'>";
+                // card += "           <div class='icon dollar'><i class='far fa-money-bill-alt'></i></div>";
+                // card += "           <div class='card-text'>"+itens.value+"</div>";
+                // card += "       </div>";
+                // card += "   </div>";
+                // card += "</div>";
+                // $(".box-vehicle").append(card);
             });
             $(".card-image").on('click', function(){
                 $("#img").children().attr('src', $(this).children().attr('src'));
@@ -85,8 +103,7 @@
             });
             $("#img").on("click", function(){
                 $(this).toggle("display");
-            })
-            
+            });
         }
     })
     })
